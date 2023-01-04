@@ -14,11 +14,13 @@ namespace magasin
             std::vector<produit::Produit> produit() const ;
             std::vector<client::Client> client() const ;
             std::vector<commande::Commande> commande() const ;
+            void addProduct(produit::Produit produit) ;
 
         private:
-            std::vector<produit::Produit> _produit ;
-            std::vector<client::Client> _client ;
-            std::vector<commande::Commande> _commande ;
+            std::vector<produit::Produit> _produits ;
+            std::vector<client::Client> _clients ;
+            std::vector<commande::Commande> _commandes ;
 
     } ;
+    void showProducts(std::vector<produit::Produit> produits) ;
 }
