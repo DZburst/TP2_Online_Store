@@ -32,5 +32,12 @@
         "tuple": "cpp",
         "typeinfo": "cpp",
         "utility": "cpp"
-    }
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/workspaces/TP2_Online_Store",
+            "binaryPath": "/workspaces/TP2_Online_Store/TP2_Online_Store",
+            "binaryArgs": []
+        }
+    ]
 }

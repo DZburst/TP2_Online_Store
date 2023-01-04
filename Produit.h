@@ -12,6 +12,7 @@ namespace produit
             unsigned int quantite() const ;
             unsigned int id() const ;
             float prix() const ;
+            void updateQuantite(unsigned int n) ;
 
         private:
             std::string _nom ;
@@ -21,4 +22,5 @@ namespace produit
             float _prix ;
 
     } ;
+    std::ostream& operator<<(std::ostream& os, const Produit& produit) ;
 }

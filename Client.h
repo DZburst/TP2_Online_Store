@@ -1,4 +1,5 @@
 #pragma once
+#include "Produit.h"
 #include <iostream>
 
 namespace client

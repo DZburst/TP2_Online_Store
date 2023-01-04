@@ -1,4 +1,5 @@
 #include "Produit.h"
+using std::endl ;
 
 produit::Produit::Produit(std::string nom, std::string description, unsigned int quantite, unsigned int id, float prix):
 _nom(nom), _description(description), _quantite(quantite), _id(id), _prix(prix)
@@ -27,4 +28,16 @@ unsigned int produit::Produit::id() const
 float produit::Produit::prix() const
 {
     return _prix ;
+}
+
+void produit::Produit::updateQuantite(unsigned int n)
+{
+    _quantite = n ;
+}
+
+
+std::ostream& produit::operator<<(std::ostream& os, const Produit& produit)
+{
+	os << produit.nom() + " : " + std::to_string(produit.prix()) + " €" << endl << produit.description() << endl << "Encore " + std::to_string(produit.quantite()) + " en stock." ;
+	return os ;
 }
