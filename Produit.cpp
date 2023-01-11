@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "Produit.h"
 using std::endl ;
 
@@ -38,6 +39,7 @@ void produit::Produit::updateQuantite(unsigned int n)
 
 std::ostream& produit::operator<<(std::ostream& os, const Produit& produit)
 {
-	os << produit.nom() + " : " + std::to_string(produit.prix()) + " €" << endl << produit.description() << endl << "Encore " + std::to_string(produit.quantite()) + " en stock." ;
-	return os ;
+	os << produit.nom() << " : " << std::setprecision(2) << std::fixed << std::to_string(produit.prix()) << " €" 
+       << endl << produit.description() << endl << "Encore " + std::to_string(produit.quantite()) + " en stock." ;
+	return os ;     // need to fix setprecision, not working ...
 }

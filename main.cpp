@@ -21,7 +21,7 @@ int main()
 	EasyStore.addProduct(Xbox_S) ;
 	EasyStore.addProduct(Atari_Retro) ;
 	EasyStore.addProduct(Sega_MegaDrive) ;
-	magasin::showProducts(EasyStore.produit()) ;
+	magasin::showShop(EasyStore.produit()) ;
 
 	return 0 ;
 }

@@ -15,6 +15,7 @@ namespace magasin
             std::vector<client::Client> client() const ;
             std::vector<commande::Commande> commande() const ;
             void addProduct(produit::Produit produit) ;
+            void showProduct(std::string nom_produit) ;
 
         private:
             std::vector<produit::Produit> _produits ;
@@ -22,5 +23,5 @@ namespace magasin
             std::vector<commande::Commande> _commandes ;
 
     } ;
-    void showProducts(std::vector<produit::Produit> produits) ;
+    void showShop(std::vector<produit::Produit> produits) ;
 }
