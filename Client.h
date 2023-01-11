@@ -12,12 +12,15 @@ namespace client
             std::string prenom() const ;
             unsigned int id() const ;
             std::vector<produit::Produit> panier() const ;
+            void addProduct(produit::Produit produit) ;
+            void emptyCart() ;
+            void updateQuantity(produit::Produit produit, int n) ;
 
         private:
             std::string _nom ;
             std::string _prenom ;
             unsigned int _id ;
             std::vector<produit::Produit> _panier ;
-
     } ;
+    std::ostream& operator<<(std::ostream& os, const Client& client) ;
 }

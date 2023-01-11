@@ -12,7 +12,8 @@ namespace produit
             unsigned int quantite() const ;
             unsigned int id() const ;
             float prix() const ;
-            void updateQuantite(unsigned int n) ;
+            void updateQuantite(int n) ;
+            bool operator == (const Produit& produit) const ;
 
         private:
             std::string _nom ;
