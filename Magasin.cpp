@@ -45,5 +45,5 @@ void magasin::Magasin::showProduct(std::string nom_produit)
     }
     if (k == _produits.size())
         std::cout << "Sorry, the item you're looking for isn't available in our store, or you misspelled its name." 
-                  << endl ;
+                  << std::endl ;
 }
