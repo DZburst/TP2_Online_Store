@@ -25,6 +25,8 @@ int main()
 	EasyStore.showProduct("Nintendo Switch") ;
 	EasyStore.showProduct("Sega MegaDrive") ;
 	EasyStore.showProduct("PS1") ;
+	EasyStore.updateQuantiteWithName("PS5", 150) ;
+	EasyStore.updateQuantiteWithName("PS1", 50) ;
 
 	return 0 ;
 }

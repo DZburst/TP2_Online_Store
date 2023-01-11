@@ -16,6 +16,7 @@ namespace magasin
             std::vector<commande::Commande> commande() const ;
             void addProduct(produit::Produit produit) ;
             void showProduct(std::string nom_produit) ;
+            void updateQuantiteWithName(std::string nom_produit, int n) ;
 
         private:
             std::vector<produit::Produit> _produits ;
