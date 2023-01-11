@@ -31,15 +31,23 @@ float produit::Produit::prix() const
     return _prix ;
 }
 
-void produit::Produit::updateQuantite(unsigned int n)
+void produit::Produit::updateQuantite(int n)
 {
     _quantite = n ;
 }
 
-
 std::ostream& produit::operator<<(std::ostream& os, const Produit& produit)
 {
 	os << produit.nom() << " : " << std::setprecision(2) << std::fixed << std::to_string(produit.prix()) << " €" 
-       << endl << produit.description() << endl << "Encore " + std::to_string(produit.quantite()) + " en stock." ;
+       << endl << produit.description() << endl << "Encore " + std::to_string(produit.quantite()) + " en stock." << endl ;
 	return os ;     // need to fix setprecision, not working ...
+}
+
+bool produit::Produit::operator==(const Produit& produit) const
+{
+    if ( (_nom == produit.nom()) && (_description == produit.description()) && (_quantite == produit.quantite()) &&
+         (_id == produit.id()) && (_prix == produit.prix()) )
+        return true ;
+    else
+        return false ;
 }

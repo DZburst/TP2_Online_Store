@@ -40,7 +40,7 @@ void magasin::Magasin::showProduct(std::string nom_produit)
         else
             k++ ;
     }
-    if (k == _produits.size())
+    if (k + 1 == _produits.size())
         std::cout << std::endl
                   << "Sorry, the item you're looking for isn't available in our store, or you misspelled its name." 
                   << std::endl ;
@@ -60,13 +60,63 @@ void magasin::Magasin::updateQuantiteWithName(std::string nom_produit, int n)
         else
             k++ ;
     }
-    if (k == _produits.size())
+    if (k + 1 == _produits.size())
         std::cout << std::endl
                   << "Sorry, the item you're looking for isn't available in our store, or you misspelled its name." 
                   << std::endl ;
 }
 
-void magasin::showShop(std::vector<produit::Produit> produits)
+void magasin::Magasin::addClient(client::Client client)
+{
+    _clients.push_back(client) ;
+}
+
+void magasin::Magasin::showClient(std::string nom_client = "name", unsigned int id = 12345678)
+{
+    int k = 0 ;
+    for (int i = 0 ; i < _clients.size() ; i++)
+    {
+        if ( (_clients.at(i).nom() == "name") || (_clients.at(i).id() == id) )
+            std::cout << std::endl << _clients.at(i) << std::endl ;
+        else
+            k++ ;
+    }
+    if (k + 1 == _clients.size())
+        std::cout << std::endl << "Sorry, this person isn't part of our database ..." << std::endl ;
+}
+
+void magasin::Magasin::addItemCart(produit::Produit produit)
+{
+    _clients.panier().push_back(produit) ;
+}
+
+void magasin::Magasin::deleteItemCart(produit::Produit produit)
+{
+    for (int i = 0 ; i < _produits.size() ; i++)
+    {
+        if (_clients.panier().at(i) == produit)
+            _clients.panier().erase(i) ;
+        break ;
+    }
+}
+
+void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n)
+{
+    for (int i = 0 ; i < _produits.size() ; i++)
+    {
+        if (_clients.panier().at(i) == produit)
+            _clients.panier().erase(i) ;
+        else
+    }
+}
+
+void magasin::showShopClients(std::vector<client::Client> clients)
+{
+    for ( int i = 0 ; i < clients.size() ; i++)
+        std::cout << clients.at(i) << std::endl << std::endl ;
+}
+
+void magasin::showShopItems(std::vector<produit::Produit> produits)
 {
     for ( int i = 0 ; i < produits.size() ; i++)
         std::cout << produits.at(i) << std::endl << std::endl ;
