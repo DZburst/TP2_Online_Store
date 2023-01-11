@@ -22,6 +22,9 @@ int main()
 	EasyStore.addProduct(Atari_Retro) ;
 	EasyStore.addProduct(Sega_MegaDrive) ;
 	magasin::showShop(EasyStore.produit()) ;
+	EasyStore.showProduct("Nintendo Switch") ;
+	EasyStore.showProduct("Sega MegaDrive") ;
+	EasyStore.showProduct("PS1") ;
 
 	return 0 ;
 }
