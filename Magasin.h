@@ -19,9 +19,9 @@ namespace magasin
             void updateQuantiteWithName(std::string nom_produit, int n) ;
             void addClient(client::Client client) ;
             void showClient(std::string nom_client = "name", unsigned int id = 12345678) ;
-            void addItemCart(produit::Produit produit) ;
-            void deleteItemCart(produit::Produit produit) ;
-            void updateCartItemQuantity(produit::Produit produit, int n) ;
+            void addItemCart(produit::Produit produit, client::Client client) ;
+            void deleteItemCart(produit::Produit produit, client::Client client) ;
+            void updateCartItemQuantity(produit::Produit produit, int n, client::Client client) ;
             
         private:
             std::vector<produit::Produit> _produits ;

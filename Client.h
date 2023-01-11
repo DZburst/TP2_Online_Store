@@ -11,7 +11,7 @@ namespace client
             std::string nom() const ;
             std::string prenom() const ;
             unsigned int id() const ;
-            std::vector<produit::Produit> panier() const ;
+            std::vector<produit::Produit> panier() ;
             void addProduct(produit::Produit produit) ;
             void emptyCart() ;
             void updateQuantity(produit::Produit produit, int n) ;

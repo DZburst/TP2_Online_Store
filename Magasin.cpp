@@ -85,29 +85,34 @@ void magasin::Magasin::showClient(std::string nom_client = "name", unsigned int 
         std::cout << std::endl << "Sorry, this person isn't part of our database ..." << std::endl ;
 }
 
-void magasin::Magasin::addItemCart(produit::Produit produit)
+void magasin::Magasin::addItemCart(produit::Produit produit, client::Client client)
 {
-    _clients.panier().push_back(produit) ;
+    for (int i = 0 ; i < _clients.size() ; i++)
+    {
+        if (_clients.at(i) == client)                       // Don't forget to overload == for Client
+            _clients.at(i).panier().push_back(produit) ;
+    }
+
 }
 
-void magasin::Magasin::deleteItemCart(produit::Produit produit)
+void magasin::Magasin::deleteItemCart(produit::Produit produit, client::Client client)
 {
-    for (int i = 0 ; i < _produits.size() ; i++)
+    for (int i = 0 ; i < _clients.size() ; i++)
     {
-        if (_clients.panier().at(i) == produit)
-            _clients.panier().erase(i) ;
-        break ;
+        if (_clients.at(i) == client)
+        {
+            for (int j = 0 ; j < _clients.at(i).panier().size() ; j++)
+            {
+                if (_clients.at(i).panier().at(j) == produit)
+                    _clients.at(i).panier().erase(j) ;
+            }
+        }
     }
 }
 
-void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n)
+void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n, client::Client client)
 {
-    for (int i = 0 ; i < _produits.size() ; i++)
-    {
-        if (_clients.panier().at(i) == produit)
-            _clients.panier().erase(i) ;
-        else
-    }
+    
 }
 
 void magasin::showShopClients(std::vector<client::Client> clients)
