@@ -85,7 +85,7 @@ void magasin::Magasin::showClient(std::string nom_client = "name", unsigned int 
         std::cout << std::endl << "Sorry, this person isn't part of our database ..." << std::endl ;
 }
 
-void magasin::Magasin::addItemCart(produit::Produit produit, client::Client client)
+void magasin::Magasin::addCartItem(produit::Produit produit, client::Client client)
 {
     for (int i = 0 ; i < _clients.size() ; i++)
     {
@@ -95,7 +95,24 @@ void magasin::Magasin::addItemCart(produit::Produit produit, client::Client clie
 
 }
 
-void magasin::Magasin::deleteItemCart(produit::Produit produit, client::Client client)
+void magasin::Magasin::deleteCartItem(produit::Produit produit, client::Client client)
+{
+    std::vector<produit::Produit> vect ;
+    for (int i = 0 ; i < _clients.size() ; i++)
+    {
+        if (_clients.at(i) == client)
+        {
+            for (int j = 0 ; j < _clients.at(i).panier().size() ; j++)
+            {
+                if (_clients.at(i).panier().at(j) != produit)
+                    vect.push_back(_clients.at(i).panier().at(j)) ;
+            }
+            _clients.at(i).panier() = vect ;
+        }
+    }
+}
+
+void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n, client::Client client)
 {
     for (int i = 0 ; i < _clients.size() ; i++)
     {
@@ -104,15 +121,10 @@ void magasin::Magasin::deleteItemCart(produit::Produit produit, client::Client c
             for (int j = 0 ; j < _clients.at(i).panier().size() ; j++)
             {
                 if (_clients.at(i).panier().at(j) == produit)
-                    _clients.at(i).panier().erase(j) ;
+                    _clients.at(i).panier().at(j).updateQuantite(n) ;
             }
         }
     }
-}
-
-void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n, client::Client client)
-{
-    
 }
 
 void magasin::showShopClients(std::vector<client::Client> clients)

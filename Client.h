@@ -15,6 +15,7 @@ namespace client
             void addProduct(produit::Produit produit) ;
             void emptyCart() ;
             void updateQuantity(produit::Produit produit, int n) ;
+            bool operator == (Client& client) ;
 
         private:
             std::string _nom ;
