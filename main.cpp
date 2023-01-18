@@ -40,7 +40,7 @@ int main()
 	NotMe.addProduct(Atari_Retro) ;
 	NotMe.addProduct(Xbox_S) ;
 	cout << NotMe << endl ;
-
+	
 	EasyStore.addClient(Me) ;
 	EasyStore.addClient(NotMe) ;
 	EasyStore.showClient("HADJI", 0) ;
