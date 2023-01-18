@@ -71,17 +71,17 @@ void magasin::Magasin::addClient(client::Client client)
     _clients.push_back(client) ;
 }
 
-void magasin::Magasin::showClient(std::string nom_client = "name", unsigned int id = 12345678)
+void magasin::Magasin::showClient(std::string nom_client, unsigned int id)
 {
-    int k = 0 ;
+    int k = 1 ;
     for (int i = 0 ; i < _clients.size() ; i++)
     {
-        if ( (_clients.at(i).nom() == "name") || (_clients.at(i).id() == id) )
+        if ( (_clients.at(i).nom() == nom_client) || (_clients.at(i).id() == id) )
             std::cout << std::endl << _clients.at(i) << std::endl ;
         else
             k++ ;
     }
-    if (k + 1 == _clients.size())
+    if (k == _clients.size())
         std::cout << std::endl << "Sorry, this person isn't part of our database ..." << std::endl ;
 }
 
