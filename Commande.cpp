@@ -18,3 +18,16 @@ bool commande::Commande::etat_commande() const
 {
     return _etat_commande ;
 }
+
+std::ostream& commande::operator << (std::ostream& os, const Commande& commande)
+{
+    os << "Informations client :" << commande.client() << "Informations produits :" ;
+    for (int i = 0 ; i < commande.produits().size() ; i++)
+        os << commande.produits().at(i) ;
+    os << "État de la commande : " ;
+    if (commande.etat_commande() == true)
+        os << "Produits commandés" ;
+    else
+        os << "En attente" ;
+    return os ;
+}

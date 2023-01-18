@@ -17,6 +17,6 @@ namespace commande
             client::Client _client ;
             std::vector<produit::Produit> _produits ;
             bool _etat_commande ;
-
     } ;
+    std::ostream& operator << (std::ostream& os, const Commande& commande) ;
 }
