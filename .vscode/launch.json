@@ -5,7 +5,7 @@
       "name": "(gdb) Lancement de canal",
       "type": "cppdbg",
       "request": "launch",
-      "program": "entrer le nom du programme, par exemple ${workspaceFolder}/a.out",
+      "program": "/workspaces/TP2_Online_Store/TP2_Online_Store/a.out",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
