@@ -11,12 +11,12 @@ namespace commande
             Commande(client::Client client, std::vector<produit::Produit> produits, bool etat_commande) ;
             client::Client client() const ;
             std::vector<produit::Produit> produits() const ;
-            bool etat_commande() const ;
+            bool statut() const ;
 
         private:
             client::Client _client ;
             std::vector<produit::Produit> _produits ;
-            bool _etat_commande ;
+            bool _statut ;
     } ;
     std::ostream& operator << (std::ostream& os, const Commande& commande) ;
 }
