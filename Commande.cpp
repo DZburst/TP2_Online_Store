@@ -1,7 +1,7 @@
 #include "Commande.h"
 
-commande::Commande::Commande(client::Client client, std::vector<produit::Produit> produits, bool etat_commande) :
-_client(client), _produits(produits), _etat_commande(etat_commande)
+commande::Commande::Commande(client::Client client, std::vector<produit::Produit> produits, bool statut) :
+_client(client), _produits(produits), _statut(statut)
 {}
 
 client::Client commande::Commande::client() const
@@ -14,9 +14,9 @@ std::vector<produit::Produit> commande::Commande::produits() const
     return _produits ;
 }
 
-bool commande::Commande::etat_commande() const
+bool commande::Commande::statut() const
 {
-    return _etat_commande ;
+    return _statut ;
 }
 
 std::ostream& commande::operator << (std::ostream& os, const Commande& commande)
@@ -25,9 +25,9 @@ std::ostream& commande::operator << (std::ostream& os, const Commande& commande)
     for (int i = 0 ; i < commande.produits().size() ; i++)
         os << commande.produits().at(i) ;
     os << "État de la commande : " ;
-    if (commande.etat_commande() == true)
-        os << "Produits commandés" ;
+    if (commande.statut() == true)
+        os << "Produit(s) livré(s)" ;
     else
-        os << "En attente" ;
+        os << "Produit(s) en cours de livraison" ;
     return os ;
 }
