@@ -1,6 +1,9 @@
-#include <vector>
 #include "Client.h"
 #include "Produit.h"
+
+#include <cstddef>
+
+using std::size_t;
 
 client::Client::Client(std::string nom, std::string prenom, unsigned int id, std::vector<produit::Produit> panier) :
 _nom(nom), _prenom(prenom), _id(id), _panier(panier)
@@ -24,10 +27,8 @@ unsigned int client::Client::id() const
 }
 
 
-std::vector<produit::Produit> client::Client::panier() const
-{
-    return _panier ;
-}
+const std::vector<produit::Produit>& client::Client::panier() const { return _panier ; }
+std::vector<produit::Produit>& client::Client::panier() { return _panier ; }
 
 void client::Client::addProduct(produit::Produit produit)
 {
@@ -41,7 +42,7 @@ void client::Client::emptyCart()
 
 void client::Client::updateQuantity(produit::Produit produit, int n)
 {
-    for (int i = 0 ; i < _panier.size() ; i++)
+    for (size_t i = 0 ; i < _panier.size() ; i++)
     {
         if (produit == _panier.at(i))
         {
@@ -56,12 +57,12 @@ void client::Client::updateQuantity(produit::Produit produit, int n)
 
 std::ostream& client::operator<<(std::ostream& os, const Client& client)
 {
-	os << std::endl << client.nom() + " " + client.prenom() << std::endl
+    os << std::endl << client.nom() + " " + client.prenom() << std::endl
        << "ID : " << client.id() << std::endl
        << "Content of the cart :" << std::endl << std::endl ;
-    for (int i = 0 ; i < client.panier().size() ; i++)
+    for (size_t i = 0 ; i < client.panier().size() ; i++)
         os << client.panier().at(i) << std::endl ;
-	return os ;
+    return os ;
 }
 
 bool client::Client::operator==(const Client& client) const

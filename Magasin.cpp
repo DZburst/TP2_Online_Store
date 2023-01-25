@@ -1,6 +1,10 @@
+#include "Magasin.h"
+
+#include <cstddef>
 #include <iostream>
 #include <vector>
-#include "Magasin.h"
+
+using std::size_t;
 
 magasin::Magasin::Magasin(std::vector<produit::Produit> produit, std::vector<client::Client> client, 
 std::vector<commande::Commande> commande) :
@@ -30,7 +34,7 @@ void magasin::Magasin::addProduct(produit::Produit produit)
 void magasin::Magasin::showProduct(std::string nom_produit)
 {
     unsigned int k = 0 ;
-    for (int i = 0 ; i < _produits.size() ; i++)
+    for (size_t i = 0 ; i < _produits.size() ; i++)
     {
         if (_produits.at(i).nom() == nom_produit)
         {
@@ -49,7 +53,7 @@ void magasin::Magasin::showProduct(std::string nom_produit)
 void magasin::Magasin::updateQuantiteWithName(std::string nom_produit, int n)
 {
     unsigned int k = 0 ;
-    for (int i = 0 ; i < _produits.size() ; i++)
+    for (size_t i = 0 ; i < _produits.size() ; i++)
     {
         if (_produits.at(i).nom() == nom_produit)
         {
@@ -73,8 +77,8 @@ void magasin::Magasin::addClient(client::Client client)
 
 void magasin::Magasin::showClient(std::string nom_client, unsigned int id)
 {
-    int k = 1 ;
-    for (int i = 0 ; i < _clients.size() ; i++)
+    size_t k = 1 ;
+    for (size_t i = 0 ; i < _clients.size() ; i++)
     {
         if ( (_clients.at(i).nom() == nom_client) || (_clients.at(i).id() == id) )
             std::cout << std::endl << _clients.at(i) << std::endl ;
@@ -87,7 +91,7 @@ void magasin::Magasin::showClient(std::string nom_client, unsigned int id)
 
 void magasin::Magasin::addCartItem(produit::Produit produit, client::Client client)
 {
-    for (int i = 0 ; i < _clients.size() ; i++)
+    for (size_t i = 0 ; i < _clients.size() ; i++)
     {
         if (_clients.at(i) == client)                       // Don't forget to overload == for Client
             _clients.at(i).panier().push_back(produit) ;
@@ -98,11 +102,11 @@ void magasin::Magasin::addCartItem(produit::Produit produit, client::Client clie
 void magasin::Magasin::deleteCartItem(produit::Produit produit, client::Client client)
 {
     std::vector<produit::Produit> vect ;
-    for (int i = 0 ; i < _clients.size() ; i++)
+    for (size_t i = 0 ; i < _clients.size() ; i++)
     {
         if (_clients.at(i) == client)
         {
-            for (int j = 0 ; j < _clients.at(i).panier().size() ; j++)
+            for (size_t j = 0 ; j < _clients.at(i).panier().size() ; j++)
             {
                 if (_clients.at(i).panier().at(j) != produit)
                     vect.push_back(_clients.at(i).panier().at(j)) ;
@@ -114,11 +118,11 @@ void magasin::Magasin::deleteCartItem(produit::Produit produit, client::Client c
 
 void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n, client::Client client)
 {
-    for (int i = 0 ; i < _clients.size() ; i++)
+    for (size_t i = 0 ; i < _clients.size() ; i++)
     {
         if (_clients.at(i) == client)
         {
-            for (int j = 0 ; j < _clients.at(i).panier().size() ; j++)
+            for (size_t j = 0 ; j < _clients.at(i).panier().size() ; j++)
             {
                 if (_clients.at(i).panier().at(j) == produit)
                     _clients.at(i).panier().at(j).updateQuantite(n) ;
@@ -129,12 +133,12 @@ void magasin::Magasin::updateCartItemQuantity(produit::Produit produit, int n, c
 
 void magasin::showShopClients(std::vector<client::Client> clients)
 {
-    for ( int i = 0 ; i < clients.size() ; i++)
+    for (size_t i = 0 ; i < clients.size() ; i++)
         std::cout << clients.at(i) << std::endl << std::endl ;
 }
 
 void magasin::showShopItems(std::vector<produit::Produit> produits)
 {
-    for ( int i = 0 ; i < produits.size() ; i++)
+    for (size_t i = 0 ; i < produits.size() ; i++)
         std::cout << produits.at(i) << std::endl << std::endl ;
 }
