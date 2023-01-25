@@ -24,7 +24,7 @@ unsigned int client::Client::id() const
 }
 
 
-std::vector<produit::Produit> client::Client::panier()
+std::vector<produit::Produit> client::Client::panier() const
 {
     return _panier ;
 }
@@ -54,7 +54,7 @@ void client::Client::updateQuantity(produit::Produit produit, int n)
     }
 }
 
-std::ostream& client::operator<<(std::ostream& os, Client& client)
+std::ostream& client::operator<<(std::ostream& os, const Client& client)
 {
 	os << std::endl << client.nom() + " " + client.prenom() << std::endl
        << "ID : " << client.id() << std::endl
@@ -64,7 +64,7 @@ std::ostream& client::operator<<(std::ostream& os, Client& client)
 	return os ;
 }
 
-bool client::Client::operator==(Client& client)
+bool client::Client::operator==(const Client& client) const
 {
     if ( (_nom == client.nom()) && (_prenom == client.prenom()) && (_id == client.id()) && (_panier == client.panier()) )
         return true ;

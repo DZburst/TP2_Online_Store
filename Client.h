@@ -11,11 +11,11 @@ namespace client
             std::string nom() const ;
             std::string prenom() const ;
             unsigned int id() const ;
-            std::vector<produit::Produit> panier() ;
+            std::vector<produit::Produit> panier() const ;
             void addProduct(produit::Produit produit) ;
             void emptyCart() ;
             void updateQuantity(produit::Produit produit, int n) ;
-            bool operator == (Client& client) ;
+            bool operator == (const Client& client) const ;
 
         private:
             std::string _nom ;

@@ -43,7 +43,7 @@ std::ostream& produit::operator<<(std::ostream& os, const Produit& produit)
 	return os ;     // need to fix setprecision, not working ...
 }
 
-bool produit::Produit::operator == (Produit& produit)
+bool produit::Produit::operator == (const Produit& produit) const
 {
     if ( (_nom == produit.nom()) && (_description == produit.description()) && (_quantite == produit.quantite()) &&
          (_id == produit.id()) && (_prix == produit.prix()) )
@@ -52,7 +52,7 @@ bool produit::Produit::operator == (Produit& produit)
         return false ;
 }
 
-bool produit::Produit::operator != (Produit& produit)
+bool produit::Produit::operator != (const Produit& produit) const
 {
     return !(*this == produit) ;
 }
