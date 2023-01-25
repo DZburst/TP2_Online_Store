@@ -40,7 +40,7 @@ void magasin::Magasin::showProduct(std::string nom_produit)
         else
             k++ ;
     }
-    if (k + 1 == _produits.size())
+    if (k == _produits.size())
         std::cout << std::endl
                   << "Sorry, the item you're looking for isn't available in our store, or you misspelled its name." 
                   << std::endl ;
@@ -60,7 +60,7 @@ void magasin::Magasin::updateQuantiteWithName(std::string nom_produit, int n)
         else
             k++ ;
     }
-    if (k + 1 == _produits.size())
+    if (k == _produits.size())
         std::cout << std::endl
                   << "Sorry, the item you're looking for isn't available in our store, or you misspelled its name." 
                   << std::endl ;
@@ -73,7 +73,7 @@ void magasin::Magasin::addClient(client::Client client)
 
 void magasin::Magasin::showClient(std::string nom_client, unsigned int id)
 {
-    int k = 1 ;
+    int k = 0 ;
     for (int i = 0 ; i < _clients.size() ; i++)
     {
         if ( (_clients.at(i).nom() == nom_client) || (_clients.at(i).id() == id) )

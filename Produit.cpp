@@ -40,7 +40,7 @@ std::ostream& produit::operator<<(std::ostream& os, const Produit& produit)
 {
 	os << produit.nom() << " : " << std::setprecision(2) << std::fixed << std::to_string(produit.prix()) << " €" 
        << endl << produit.description() << endl << "Encore " + std::to_string(produit.quantite()) + " en stock." << endl ;
-	return os ;     // need to fix setprecision, not working ...
+	return os ;
 }
 
 bool produit::Produit::operator == (const Produit& produit) const
