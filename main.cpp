@@ -12,11 +12,11 @@ int main()
 	std::vector<commande::Commande> commandes ;
 	magasin::Magasin EasyStore(produits, clients, commandes) ;
 
-	produit::Produit Nintendo_Switch("Nintendo Switch", "Console de jeux vidéos Nintendo", 213, 123456789, 300.00) ;
+	produit::Produit Nintendo_Switch("Nintendo_Switch", "Console de jeux vidéos Nintendo", 213, 123456789, 300.00) ;
 	produit::Produit PS5("PS5", "Console de jeux vidéos Sony", 2, 456789123, 500.00) ;
-	produit::Produit Xbox_S("Xbox S", "Console de jeux vidéos Microsoft", 351, 789123456, 250.00) ;
-	produit::Produit Atari_Retro("Atari Retro", "Console de jeux vidéos Atari", 50, 789456123, 120.00) ;
-	produit::Produit Sega_MegaDrive("Sega MegaDrive", "Console de jeux vidéos Sega", 27, 123789456, 200.00) ;
+	produit::Produit Xbox_S("Xbox_S", "Console de jeux vidéos Microsoft", 351, 789123456, 250.00) ;
+	produit::Produit Atari_Retro("Atari_Retro", "Console de jeux vidéos Atari", 50, 789456123, 120.00) ;
+	produit::Produit Sega_MegaDrive("Sega_MegaDrive", "Console de jeux vidéos Sega", 27, 123789456, 200.00) ;
 
 	EasyStore.addProduct(Nintendo_Switch) ;
 	EasyStore.addProduct(PS5) ;
@@ -91,6 +91,7 @@ int main()
 			cin >> name >> description >> quantity >> id >> price ;
 			produit::Produit product(name, description, quantity, id, price) ;
 			EasyStore.addProduct(product) ;
+			EasyStore.showProduct(product.nom()) ;
 		}
 		if (b == 2)
 		{
