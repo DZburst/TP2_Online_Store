@@ -23,7 +23,7 @@ int main()
 	EasyStore.addProduct(Xbox_S) ;
 	EasyStore.addProduct(Atari_Retro) ;
 	EasyStore.addProduct(Sega_MegaDrive) ;
-	magasin::showShopItems(EasyStore.produit()) ;
+	//magasin::showShopItems(EasyStore.produit()) ;
 	//EasyStore.showProduct("Nintendo Switch") ;
 	//EasyStore.showProduct("Sega MegaDrive") ;
 	//EasyStore.showProduct("PS1") ;
@@ -43,8 +43,23 @@ int main()
 	
 	EasyStore.addClient(Me) ;
 	EasyStore.addClient(NotMe) ;
-	magasin::showShopClients(EasyStore.client()) ;
+	//magasin::showShopClients(EasyStore.client()) ;
 	//EasyStore.showClient("HADJI", 0) ;
 
+	cout << "                                                                        " << endl ;
+	cout << " ______  ______  ______  ______  ______  ______  ______  ______  ______ " << endl ;
+	cout << "|______||______||______||______||______||______||______||______||______|" << endl ;
+	cout << "   _      _____                    _____  _                         _   " << endl ;
+	cout << "  | |    |  ___|                  /  ___|| |                       | |  " << endl ;
+	cout << " / __)   | |__   __ _  ___  _   _ \ `--. | |_  ___   _ __  ___    / __) " << endl ;
+	cout << " \__ \   |  __| / _` |/ __|| | | | `--. \| __|/ _ \ | '__|/ _ \   \__ \ " << endl ;
+	cout << " (   /   | |___| (_| |\__ \| |_| |/\__/ /| |_| (_) || |  |  __/   (   / " << endl ;
+	cout << "  |_|    \____/ \__,_||___/ \__, |\____/  \__|\___/ |_|   \___|    |_|  " << endl ;
+	cout << "                             __/ |                                      " << endl ;
+	cout << "                            |___/                                       " << endl ;
+	cout << " ______  ______  ______  ______  ______  ______  ______  ______  ______ " << endl ;
+	cout << "|______||______||______||______||______||______||______||______||______|" << endl ;
+	cout << "                                                                        " << endl ;
+	
 	return 0 ;
 }
