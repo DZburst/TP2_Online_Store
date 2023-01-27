@@ -64,10 +64,15 @@ std::ostream& client::operator<<(std::ostream& os, const Client& client)
 	return os ;
 }
 
-bool client::Client::operator==(const Client& client) const
+bool client::Client::operator == (const Client& client) const
 {
     if ( (_nom == client.nom()) && (_prenom == client.prenom()) && (_id == client.id()) && (_panier == client.panier()) )
         return true ;
     else
         return false ;
+}
+
+bool client::Client::operator != (const Client& client)const
+{
+    return !(*this == client) ;
 }

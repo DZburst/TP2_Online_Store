@@ -27,6 +27,17 @@ void magasin::Magasin::addProduct(produit::Produit produit)
     _produits.push_back(produit) ;
 }
 
+void magasin::Magasin::removeProduct(produit::Produit produit)
+{
+    std::vector<produit::Produit> vect ;
+    for (int i = 0 ; i < _produits.size() ; i++)
+    {
+        if (_produits.at(i) != produit)
+            vect.push_back(_produits.at(i)) ;
+    }
+    _produits = vect ;
+}
+
 void magasin::Magasin::showProduct(std::string nom_produit)
 {
     unsigned int k = 0 ;
@@ -69,6 +80,17 @@ void magasin::Magasin::updateQuantiteWithName(std::string nom_produit, int n)
 void magasin::Magasin::addClient(client::Client client)
 {
     _clients.push_back(client) ;
+}
+
+void magasin::Magasin::removeClient(client::Client client)
+{
+    std::vector<client::Client> vect ;
+    for (int i = 0 ; i < _clients.size() ; i++)
+    {
+        if (_clients.at(i) != client)
+            vect.push_back(_clients.at(i)) ;
+    }
+    _clients = vect ;
 }
 
 void magasin::Magasin::showClient(std::string nom_client, unsigned int id)
@@ -133,8 +155,20 @@ void magasin::showShopClients(std::vector<client::Client> clients)
         std::cout << clients.at(i) << std::endl << std::endl ;
 }
 
+void magasin::showShopClientsName(std::vector<client::Client> clients)
+{
+    for ( int i = 0 ; i < clients.size() ; i++)
+        std::cout << clients.at(i).nom() << ", " << clients.at(i).id() << std::endl << std::endl ;
+}
+
 void magasin::showShopItems(std::vector<produit::Produit> produits)
 {
     for ( int i = 0 ; i < produits.size() ; i++)
         std::cout << produits.at(i) << std::endl << std::endl ;
+}
+
+void magasin::showShopItemsName(std::vector<produit::Produit> produits)
+{
+    for ( int i = 0 ; i < produits.size() ; i++)
+        std::cout << produits.at(i).nom() << std::endl << std::endl ;
 }

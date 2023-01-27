@@ -51,15 +51,138 @@ int main()
 	cout << "|______||______||______||______||______||______||______||______||______|" << endl ;
 	cout << "   _      _____                    _____  _                         _   " << endl ;
 	cout << "  | |    |  ___|                  /  ___|| |                       | |  " << endl ;
-	cout << " / __)   | |__   __ _  ___  _   _ \ `--. | |_  ___   _ __  ___    / __) " << endl ;
-	cout << " \__ \   |  __| / _` |/ __|| | | | `--. \| __|/ _ \ | '__|/ _ \   \__ \ " << endl ;
-	cout << " (   /   | |___| (_| |\__ \| |_| |/\__/ /| |_| (_) || |  |  __/   (   / " << endl ;
-	cout << "  |_|    \____/ \__,_||___/ \__, |\____/  \__|\___/ |_|   \___|    |_|  " << endl ;
+	cout << " / __)   | |__   __ _  ___  _   _ \\ `--. | |_  ___   _ __  ___    / __) " << endl ;
+	cout << " \\__ \\   |  __| / _` |/ __|| | | | `--. \\| __|/ _ \\ | '__|/ _ \\   \\__ \\ " << endl ;
+	cout << " (   /   | |___| (_| |\\__ \\| |_| |/\\__/ /| |_| (_) || |  |  __/   (   / " << endl ;
+	cout << "  |_|    \\____/ \\__,_||___/ \\__, |\\____/  \\__|\\___/ |_|   \\___|    |_|  " << endl ;
 	cout << "                             __/ |                                      " << endl ;
 	cout << "                            |___/                                       " << endl ;
 	cout << " ______  ______  ______  ______  ______  ______  ______  ______  ______ " << endl ;
 	cout << "|______||______||______||______||______||______||______||______||______|" << endl ;
-	cout << "                                                                        " << endl ;
+	cout << "                                                                        " << endl << endl ;
+	cout << "Welcome to EasyStore ! Please select a menu by typing its corresponding number :" << endl ;
+	cout << "1. Product Management" << endl ;
+	cout << "2. Customer Management" << endl ;
+	cout << "3. Order Management" << endl ;				// Not coded -> if a = 3, nothing will happen ...
+	int a = 0 ;
+	while ((a != 1) && (a != 2) && (a != 3))
+		cin >> a ;
+	if (a == 1)
+	{
+		cout << "----------------------" << endl ;
+		cout << "- PRODUCT MANAGEMENT -" << endl ;
+		cout << "----------------------" << endl << endl ;
+		cout << "Please select an option by typing its corresponding number :" << endl ;
+		cout << "1. Add a product to the store" << endl ;
+		cout << "2. Remove a product from the store" << endl ;
+		cout << "3. Show all the available products in the store" << endl ;
+		cout << "4. Update the quantity of an item in the store" << endl ;
+		int b = 0 ;
+		while ((b != 1) && (b != 2) && (b != 3) && (b != 4))
+			cin >> b ;
+		if (b == 1)
+		{
+			cout << "Please respectively provide a name, a description, a quantity, an ID and a price" << endl ;
+			std::string name ;
+            std::string description ;
+            unsigned int quantity ;
+            unsigned int id ;
+            float price ;
+			cin >> name >> description >> quantity >> id >> price ;
+			produit::Produit product(name, description, quantity, id, price) ;
+			EasyStore.addProduct(product) ;
+		}
+		if (b == 2)
+		{
+			cout << "Please respectively provide a name, a description, a quantity, an ID and a price" << endl ;
+			std::string name ;
+            std::string description ;
+            unsigned int quantity ;
+            unsigned int id ;
+            float price ;
+			cin >> name >> description >> quantity >> id >> price ;
+			produit::Produit product(name, description, quantity, id, price) ;
+			EasyStore.removeProduct(product) ;
+		}
+		if (b == 3)
+		{
+			magasin::showShopItemsName(EasyStore.produit()) ;
+			cout << "If you want more details about a product, please type 1, else type 2" << endl ;
+			int z = 0 ;
+			while ((z != 1) && (z != 2))
+				cin >> z ;
+			if (z == 1)
+			{
+				cout << "Please provide the name of the product" << endl ;
+				std::string name ;
+				cin >> name ;
+				EasyStore.showProduct(name) ;
+			}
+		}
+		if (b == 4)
+		{
+			cout << "Please select an item's name from the following list, and type it :" << endl ;
+			magasin::showShopItemsName(EasyStore.produit()) ;
+			std::string name ;
+			cin >> name ;
+			cout << "Please input the new quantity for the item" << endl ;
+			int y = 0 ;
+			cin >> y ;
+			EasyStore.updateQuantiteWithName(name, y) ;
+		}
+		
+	}
+	if (a == 2)
+	{
+		cout << "-----------------------" << endl ;
+		cout << "- CUSTOMER MANAGEMENT -" << endl ;
+		cout << "-----------------------" << endl << endl ;
+		cout << "Please select an option by typing its corresponding number :" << endl ;
+		cout << "1. Add a customer to the store's database" << endl ;
+		cout << "2. Remove a customer from the store's database" << endl ;
+		cout << "3. Show all the customers in the store's database" << endl ;
+		int b = 0 ;
+		while ((b != 1) && (b != 2) && (b != 3))
+			cin >> b ;
+		if (b == 1)
+		{
+			cout << "Please respectively provide a name, a surname, and an ID" << endl ;
+			std::string name ;
+            std::string surname ;
+            unsigned int id ;
+			std::vector<produit::Produit> cart ;
+			cin >> name >> surname >> id ;
+			client::Client client(name, surname, id, cart) ;
+			EasyStore.addClient(client) ;
+		}
+		if (b == 2)
+		{
+			cout << "Please respectively provide a name, a surname, and an ID" << endl ;
+			std::string name ;
+            std::string surname ;
+            unsigned int id ;
+			std::vector<produit::Produit> cart ;
+			cin >> name >> surname >> id ;
+			client::Client client(name, surname, id, cart) ;
+			EasyStore.removeClient(client) ;
+		}
+		if (b == 3)
+		{
+			magasin::showShopClientsName(EasyStore.client()) ;
+			cout << "If you want more details about a customer, please type 1, else type 2" << endl ;
+			int z = 0 ;
+			while ((z != 1) && (z != 2))
+				cin >> z ;
+			if (z == 1)
+			{
+				cout << "Please provide the name and the ID of the customer" << endl ;
+				std::string name ;
+				int id ;
+				cin >> name >> id ;
+				EasyStore.showClient(name, id) ;
+			}
+		}
+	}
 	
 	return 0 ;
 }
