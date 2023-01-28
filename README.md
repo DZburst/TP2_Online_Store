@@ -1,4 +1,4 @@
 # TP2_Online_Store
 Attempt to create an online store.
 
-(Questions 7 & 8 have not been answered to, respectively because I didn't understand it, and because it seemed a bit too difficult given the remaining time.)
+(Questions 7 hasn't not been answered to, due to a poor understanding of the expected task, as well as a lack of ideas to implement it correctly)
